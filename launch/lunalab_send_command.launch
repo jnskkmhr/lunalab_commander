@@ -1,0 +1,9 @@
+<launch>
+    <node pkg="rostopic" type="rostopic" name="EnableLensFlare" args="pub -1 /Lunalab/LensFlare/EnableLensFlares std_msgs/Bool true"/>
+    <node pkg="rostopic" type="rostopic" name="EnableRocks" args="pub -1 /Lunalab/Terrain/EnableRocks std_msgs/Bool true"/>
+    <node pkg="rostopic" type="rostopic" name="RandomizeRocks" args="pub -r 1 /Lunalab/Terrain/RandomizeRocks std_msgs/Int32 8"/>
+    <node pkg="rostopic" type="rostopic" name="EnableRecorder" args="pub -r 10 /Lunalab/Recorder/EnableRecorder std_msgs/Bool true"/>
+    <node pkg="rostopic" type="rostopic" name="RandomizeCameraTilt" args="pub -1 /Lunalab/Robot/RandomizeCameraTilt std_msgs/Bool true"/>
+    <node pkg="lunalab_commander" name="randomize_light_pose" type="randomize_light_intensity.py" />
+    <node pkg="lunalab_commander" name="randomize_light_intensity" type="randomize_light_pose.py" />
+</launch>
